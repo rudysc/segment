@@ -60,6 +60,6 @@ var report_name = getParams("segment.js");
             analytics.SNIPPET_VERSION = "4.1.0";
             analytics.load("3aFkqrZJpUaTAM9RBUL8RdHbTWTmNLGq");
             //analytics.page();
-            analytics.track('open_report', { report: report_name , action: 'open' });
+            analytics.track('open_report', { report: report_name[0][0] , action: 'open' });
         }
 }();
