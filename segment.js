@@ -27,6 +27,7 @@ function getParams(script_name) {
   return {};
 };
 
+var report_name = {"name": "undefined"};
 var report_name = getParams("segment.js");
 
 ! function() {
