@@ -1,3 +1,16 @@
+var report_response = getParams("segment.js");
+
+var action;
+var reportName = report_response.name
+
+if (sessionStorage[reportName] == "true"){
+  action = "refresh";
+}
+else{
+  sessionStorage[reportName] = "true";
+  action = "open";
+}
+
 function getParams(script_name) {
   // Find all script tags
 
@@ -26,8 +39,6 @@ function getParams(script_name) {
 
   return {};
 };
-
-var report_response = getParams("segment.js");
 
 ! function() {
     var analytics = window.analytics = window.analytics || [];
@@ -60,6 +71,6 @@ var report_response = getParams("segment.js");
             analytics.SNIPPET_VERSION = "4.1.0";
             analytics.load(report_response.key);
             //analytics.page();
-            analytics.track('open_report', { report: report_response.name , action: 'open' });
+            analytics.track('open_report', { report: reportName , action: action });
         }
 }();
