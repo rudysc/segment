@@ -27,8 +27,7 @@ function getParams(script_name) {
   return {};
 };
 
-var report_name = {"name": "undefined"};
-var report_name = getParams("segment.js");
+var report_response = getParams("segment.js");
 
 ! function() {
     var analytics = window.analytics = window.analytics || [];
@@ -59,8 +58,8 @@ var report_name = getParams("segment.js");
                 analytics._loadOptions = e
             };
             analytics.SNIPPET_VERSION = "4.1.0";
-            analytics.load("3aFkqrZJpUaTAM9RBUL8RdHbTWTmNLGq");
+            analytics.load(report_response.key);
             //analytics.page();
-            analytics.track('open_report', { report: report_name , action: 'open' });
+            analytics.track('open_report', { report: report_response.name , action: 'open' });
         }
 }();
